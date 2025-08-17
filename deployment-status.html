@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deployment Status</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .container {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Deployment Status</h1>
+        <p>SESSION_ID: <span id="session-id"></span></p>
+        <p>Deployment Name: <span id="deployment-name"></span></p>
+        <p>Start PM: <span id="start-pm"></span></p>
+        <p>Deployment Status: <span id="deployment-status"></span></p>
+    </div>
+
+    <script>
+        // Render deployment data
+        const sessionId = 'YOUR_SESSION_ID';
+        const deploymentName = 'Njabulo-Jb';
+        const startPm = 'Yes';
+        const deploymentStatus = 'Deploying...';
+
+        document.getElementById('session-id').innerText = sessionId;
+        document.getElementById('deployment-name').innerText = deploymentName;
+        document.getElementById('start-pm').innerText = startPm;
+        document.getElementById('deployment-status').innerText = deploymentStatus;
+    </script>
+</body>
+</html>
