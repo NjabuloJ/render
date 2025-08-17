@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Njabulo-Jb Deploy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .container {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Njabulo-Jb Deploy</h1>
+        <button id="deploy-btn">Deploy</button>
+        <div id="deploy-status"></div>
+        <div id="deploy-log"></div>
+    </div>
+
+    <script>
+        const deployBtn = document.getElementById('deploy-btn');
+        deployBtn.addEventListener('click', () => {
+            document.getElementById('deploy-status').innerText = 'Deploying Njabulo-Jb...';
+            
+            // Your deployment code here
+            fetch('/deploy', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    // Your deployment data here
+                })
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                document.getElementById('deploy-status').innerText = 'Njabulo-Jb deployed successfully!';
+                document.getElementById('deploy-log').innerText = data.message;
+            })
+            .catch((error) => {
+                document.getElementById('deploy-status').innerText = 'Deployment failed.';
+                document.getElementById('deploy-log').innerText = 'Error: ' + error;
+            });
+        });
+    </script>
+</body>
+</html>
